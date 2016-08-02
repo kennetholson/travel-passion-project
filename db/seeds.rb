@@ -8,4 +8,4 @@ Place.create(country: "England", city: "London")
 Place.create(country: "Egypt", city: "Cairo")
 Place.create(country: "Egypt", city: "Sharm-El_Shiekh")
 
-User.create(first_name: "Ken", email: "ken", password_hash: "ken")
+User.create(name: "Ken", email: "ken", password_hash: "ken")
