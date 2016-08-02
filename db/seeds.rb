@@ -1,0 +1,11 @@
+Place.create(country: "Kazakhstan", city: "Almaty")
+Place.create(country: "Kazakhstan", city: "Turkestan")
+Place.create(country: "South Africa", city: "Cape Town")
+Place.create(country: "Zambia", city: "Livingston")
+Place.create(country: "Ireland", city: "Dublin")
+Place.create(country: "France", city: "Paris")
+Place.create(country: "England", city: "London")
+Place.create(country: "Egypt", city: "Cairo")
+Place.create(country: "Egypt", city: "Sharm-El_Shiekh")
+
+User.create(first_name: "Ken", email: "ken", password_hash: "ken")
