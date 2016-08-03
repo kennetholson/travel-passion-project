@@ -1,4 +1,11 @@
 <p><a href="/logout"> Log Out </a> / 
 <a href="/"> Home </a></p> 
-<a href="/rating/new"> Create a new rating </a></p> 
 
+<h1>Welcome <%= @user.name %></h1>
+<h2>Cities you have rated</h2>
+<ul>
+	<% @user.places.each do |place| %>
+	<li> <%= place.city %></li>
+	<% end %>
+</ul>
+<a href="/rating/new"> Create a new rating </a></p> 
