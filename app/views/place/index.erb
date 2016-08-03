@@ -1,3 +1,9 @@
+<% if session[:id] == nil%>
+<p><a href="users/new"> Register </a> or <a href="sessions/new"> Login </a> to rate a destination </p>
+<% else %>
+<p><a href="/logout"> Log Out </a><p>
+<% end %>
+
 <center><form action='/place' method='post'>
 Country <input type='text' name='country'><br><br>
 City <input type='text' name='city'><br><br>
