@@ -8,8 +8,7 @@ post '/sessions/new' do
 
   if @user && @user.password == params["password"]
     login(@user)
-    redirect "/users/#{@user.id}"
-    
+    redirect "/users/#{@user.id}"   
   else
     @error = "Couldn't log in"
     erb :'/sessions/new'
