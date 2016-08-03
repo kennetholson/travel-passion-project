@@ -1,8 +1,19 @@
+<a href="/"> Home </a></p> 
 <h1><%= @city %>, <%= @country %>   </h1>
 <h2> Ratings </h2>
 <% if @array.length == 0 %>
 <p>Nobody has rated this place yet</p>
 <% else %>
-<% end %>
+<ul>
+	<li>Food <%= @array.average(:food) %></li>
+	<li>Family Friendly <%= @array.average(:family_friendly) %></li>
+	<li>History <%= @array.average(:history) %></li>
+	<li>Sites <%= @array.average(:sites) %></li>
+	<li>Cost <%= @array.average(:cost) %></li>
+	<li>Hospitality <%= @array.average(:hospitality) %></li>
+	<li>Modernism <%= @array.average(:modernism) %></li>
+</ul>
+<%end%>
+
 
 
