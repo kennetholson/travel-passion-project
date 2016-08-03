@@ -10,7 +10,11 @@ get '/place/:country/:city' do
 	@country = params[:country]
 	@city = params[:city]
 	@place = Place.find_by(city: params[:city])
-	p @array = @place.ratings
+	if @place != nil
+		@array = @place.ratings
+	else 
+		@array = []
+	end 
 	erb :'/place/show'
 end	
 

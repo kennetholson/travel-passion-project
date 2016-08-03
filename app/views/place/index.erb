@@ -1,4 +1,5 @@
 <% if session[:id] == nil%>
+<%= session[:id]%>
 <p><a href="users/new"> Register </a> or <a href="sessions/new"> Login </a> to rate a destination </p>
 <% else %>
 <p><a href="/logout"> Log Out </a><p>
