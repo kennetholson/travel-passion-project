@@ -1,5 +1,5 @@
-get '/rating/new' do
-	erb :'ratings/new'
+get '/rating/new' do	
+		erb :'ratings/new'	
 end
 
 post '/rating/new' do
@@ -8,8 +8,6 @@ post '/rating/new' do
 	if @place == nil
 	@place = Place.create(country: params[:country], city: params[:city])
 	end
-	p @place
 	@rating = Rating.create(food: params[:food], family_friendly: params[:family_friendly], history: params[:history], sites: params[:sites],cost: params[:cost], hospitality: params[:hospitality], modernism: params[:modernism], user_id: @user, place_id: @place.id)
-	p @rating
 	redirect "/users/#{@user}"	
 end	

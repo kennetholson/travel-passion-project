@@ -4,12 +4,17 @@
 <% else %>
 <p><a href="/logout"> Log Out </a><p>
 <% end %>
-
-<center><form action='/place' method='post'>
-Country <input type='text' name='country'><br><br>
-City <input type='text' name='city'><br><br>
+<center>
+<h2>Find Ratings of Place</h2>
+<form id="find-country-form" action='/place' method='post'>
+Country <input id="country-name" type='text' name='country'><br><br>
+City <input id="city-name" type='text' name='city'><br><br>
 <input type="submit" value="SUBMIT">
 </form>
+
+
+
+<div id="append-area">
+
+</div>
 </center>
-
-

@@ -1,7 +1,29 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+	getRatings(); 	
 });
+
+function getRatings(){
+	$('#find-country-form').on('submit', function(event){
+		event.preventDefault();
+		var formData = $('#find-country-form').serialize()
+		console.log(formData)
+    var country = $('#country-name').val()
+    console.log(country)
+    var city = $('#city-name').val()
+    console.log(city)
+
+	$.ajax({
+      url: '/place',
+      method: 'POST',
+      data: formData
+
+    })
+    .done(function(serverData){
+      console.log(serverData);
+      $('#append-area').append(serverData);
+    })
+    .fail(function(serverData){
+    	console.log("FAIL")
+    })			
+	})
+}

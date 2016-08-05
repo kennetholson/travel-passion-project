@@ -2,10 +2,15 @@
 <a href="/"> Home </a></p> 
 
 <h1>Welcome <%= @user.name %></h1>
+<% if @user.places.length == 0 %>
+<h2> You have not rated any locations yet</h2>
+<% else %>
 <h2>Cities you have rated</h2>
 <ul>
 	<% @user.places.each do |place| %>
 	<li> <%= place.city %></li>
 	<% end %>
 </ul>
-<a href="/rating/new"> Create a new rating </a></p> 
+<% end %>
+<a id="rating-form" href="/rating/new"> Create a new rating </a></p> 
+
