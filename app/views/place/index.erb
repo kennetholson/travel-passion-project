@@ -3,6 +3,7 @@
 <p><a href="users/new"> Register </a> or <a href="sessions/new"> Login </a> to rate a destination </p>
 <% else %>
 <p><a href="/logout"> Log Out </a><p>
+<p><a href="/users/<%=@user.id%>"> My Page </a><p>
 <% end %>
 <center>
 <h2>Find Ratings of Place</h2>

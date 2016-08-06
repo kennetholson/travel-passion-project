@@ -3,6 +3,7 @@ get '/' do
 end
 
 get '/place' do
+	@user = current_user
 	erb :"place/index"
 end
 
