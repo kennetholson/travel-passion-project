@@ -1,10 +1,23 @@
-<% if session[:id] == nil%>
-<%= session[:id]%>
-<p><a href="users/new"> Register </a> or <a href="sessions/new"> Login </a> to rate a destination </p>
-<% else %>
-<p><a href="/logout"> Log Out </a><p>
-<p><a href="/users/<%=@user.id%>"> My Page </a><p>
-<% end %>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Destination Rater</a>
+    </div>
+    <ul class="nav navbar-nav">
+    	<% if session[:id] == nil%>
+		<%= session[:id]%>
+      <li><a href="users/new"> Register </a></li>
+      <li><a href="sessions/new">Login</a></li>
+      <% else %>
+      <li><a href="/logout"> Log Out </a></li>
+      <li><a href="/users/<%=@user.id%>"> My Page </a></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+
+
 <center>
 <h2>Find Ratings of Place</h2>
 <form id="find-country-form" action='/place' method='post'>
@@ -15,7 +28,10 @@ City <input id="city-name" type='text' name='city'><br><br>
 
 
 
+
 <div id="append-area">
 
 </div>
 </center>
+
+

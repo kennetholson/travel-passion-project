@@ -5,15 +5,51 @@
 <% if @array.length == 0 %>
 <p>Nobody has rated this place yet</p>
 <% else %>
-<p> Based off of <%= @array.length %> ratings</p>
-<ul>
-	<li>Food <%= @array.average(:food) %></li>
-	<li>Family Friendly <%= @array.average(:family_friendly) %></li>
-	<li>History <%= @array.average(:history) %></li>
-	<li>Sites <%= @array.average(:sites) %></li>
-	<li>Cost <%= @array.average(:cost) %></li>
-	<li>Hospitality <%= @array.average(:hospitality) %></li>
-	<li>Modernism <%= @array.average(:modernism) %></li>
-</ul>
+<h3> Based off of <%= @array.length %> ratings</h3>
+
+<h4><table width= "375" height="300" background="http://www.morrisplainsschooldistrict.org/cms/lib01/NJ01001854/Centricity/Domain/4/spinningGlobe.gif">
+	<tr>
+		<th>Catagory</th>
+		<th>Score</th>
+	</tr>
+	<tr>
+		<td>Family Friendly </td>
+		<td><center> <%= @array.average(:family_friendly) %></center></td>
+	</tr>
+	<tr>
+		<td>History </td>
+		<td><center> <%= @array.average(:history) %></center></td>
+	</tr>
+	<tr>
+		<td>Sites</td>
+		<td><center> <%= @array.average(:sites) %></center></td>
+	</tr>
+	<tr>
+		<td>Cost </td>
+		<td><center> <%= @array.average(:cost) %></center></td>
+	</tr>
+	<tr>
+		<td>Hospitality </td>
+		<td><center> <%= @array.average(:hospitality) %></center></td>
+	</tr>
+	<tr>
+		<td>Modernism </td>
+		<td><center> <%= @array.average(:modernism) %></center></td>
+	</tr>
+</table></h4>
+
+
+
+
 <%end%>
+</div>
+
+<div id="google-map">
+	<iframe
+  width="500"
+  height="350"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=<%=ENV['GOOGLE_KEY']%>
+    &q=,<%= @city %>+<%= @country %>" allowfullscreen>
+</iframe>
 </div>

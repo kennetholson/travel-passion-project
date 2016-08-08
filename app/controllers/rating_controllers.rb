@@ -1,5 +1,9 @@
-get '/rating/new' do	
-		erb :'ratings/new'	
+get '/rating/new' do
+	if request.xhr?	
+		erb :'ratings/new', layout: false
+	else 
+		erb :'ratings/new'
+	end			
 end
 
 post '/rating/new' do

@@ -32,9 +32,7 @@ post '/place' do
 		@array = []
 	end 
 
-	if request.xhr?
-		p "**********************"
-		p @place
+	if request.xhr?		
 		return erb :'/place/show', layout: false, locals: {country: @counrty, city: @city}			
 	else
 		redirect "/place/#{@country}/#{@city}"

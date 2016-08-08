@@ -1,17 +1,13 @@
 $(document).ready(function() {
-	getRatings(); 	
+	getRatings();
+  getRatingForm(); 	
 });
 
 function getRatings(){
 	$('#find-country-form').on('submit', function(event){
 		event.preventDefault();
 		var formData = $('#find-country-form').serialize()
-		console.log(formData)
-    var country = $('#country-name').val()
-    console.log(country)
-    var city = $('#city-name').val()
-    console.log(city)
-
+	
 	$.ajax({
       url: '/place',
       method: 'POST',
@@ -26,4 +22,20 @@ function getRatings(){
     	console.log("FAIL")
     })			
 	})
+}
+
+function getRatingForm(){
+  $('#rating-form').on('click', function(event){
+    event.preventDefault();
+    console.log('nothing broke yet')
+
+  $.ajax({
+    url: '/rating/new',
+    method: 'GET'
+  })
+  .done(function(serverData){
+      $("#rating-form").hide()
+      $('#rating-form-append-area').append(serverData);
+    }) 
+  });
 }

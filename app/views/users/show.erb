@@ -1,6 +1,6 @@
 <p><a href="/logout"> Log Out </a> / 
 <a href="/"> Home </a></p> 
-
+<center>
 <h1>Welcome <%= @user.name %></h1>
 <% if @user.places.length == 0 %>
 <h2> You have not rated any locations yet</h2>
@@ -8,9 +8,13 @@
 <h2>Cities you have rated</h2>
 <ul>
 	<% @user.places.each do |place| %>
-	<li> <%= place.city %></li>
+	<li> <%= place.city %>, <%= place.country %></li>
 	<% end %>
 </ul>
 <% end %>
 <a id="rating-form" href="/rating/new"> Create a new rating </a></p> 
 
+<div id="rating-form-append-area">
+
+</div>
+</center>
