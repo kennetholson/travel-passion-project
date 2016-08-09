@@ -2,7 +2,8 @@ body {
     padding-bottom: 25px;
 }
 
-table, th, td {
+
+#users-ratings-table{
    border: 1px solid black;
 }
 

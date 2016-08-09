@@ -1,0 +1,16 @@
+<h1>Edit <%= @rating.place.city%></h1>
+
+<form id="edit-rating" action='/rating/<%= @rating.id %>' method="post">
+<input type="hidden" name="_method" value="put">
+<h2> Please Rate 1 - 10 <br> </h2>
+	Food: <input type="text" name="food"><br><br>
+	Family Friendly: <input type="text" name="family_friendly"><br><br>
+	Historical Interest: <input type="text" name="history"><br><br>
+	Sites: <input type="text" name="sites"><br><br>
+	Cost: <input type="text" name="cost"><br><br>
+	Hospitality: <input type="text" name="hospitality"><br><br>
+	Modernism: <input type="text" name="modernism"><br><br> 
+
+
+	<input type="submit" value="SUBMIT">
+</form>

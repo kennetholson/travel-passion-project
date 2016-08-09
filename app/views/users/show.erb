@@ -8,7 +8,7 @@
 <h2>Cities you have rated</h2>
 
 
-	<table>
+	<table id="users-ratings-table">
 	<tr>
 		<th>City</th>
 		<th>Country</th>
@@ -19,6 +19,8 @@
 		<th> Cost </th>
 		<th> Hospitality </th>
 		<th> Modernism </th>
+		<th> Delete </th>
+		<th> Edit </th>
 
 	</tr>
 	<%@user.places.each do |something|%>
@@ -32,7 +34,16 @@
 		<td><center><%= rate.sites %></center></td>		
 		<td><center><%= rate.cost %></center></td>		
 		<td><center><%= rate.hospitality %></center></td>		
-		<td><center><%= rate.modernism %></center></td>		
+		<td><center><%= rate.modernism %></center></td>	
+		<td><form action="/rating/<%=rate.id%>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Delete">
+		</form></td>
+		<td><form action="/rating/<%=rate.id%>/edit" method="get">
+			
+			<input type="submit" value="Edit">
+		</form></td>
+
 	</tr>
 	<%end%>
 	<%end%>
