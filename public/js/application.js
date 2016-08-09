@@ -2,7 +2,8 @@ $(document).ready(function() {
 	getRatings();
   getRatingForm(); 
   getLoginForm();
-  getRegisterForm();	
+  getRegisterForm();
+  getEditRatingForm();	
 });
 
 function getRatings(){
@@ -75,5 +76,21 @@ function getRegisterForm(){
       $('#register-button').hide();
       $('#append-area').append(serverData);
     });  
+  });
+}
+
+function getEditRatingForm(){
+  $(".Button").on('click', function(event){
+    event.preventDefault();
+    var url = $(this).attr('action');
+        
+    $.ajax({
+     url: url,
+     method: 'get'     
+   })
+    .done(function(serverData){
+     $('#edit-form-append-area').empty();      
+     $('#edit-form-append-area').append(serverData);
+   });  
   });
 }

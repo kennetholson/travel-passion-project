@@ -19,8 +19,8 @@
 		<th> Cost </th>
 		<th> Hospitality </th>
 		<th> Modernism </th>
-		<th> Delete </th>
-		<th> Edit </th>
+		<th>  </th>
+		<th>  </th>
 
 	</tr>
 	<%@user.places.each do |something|%>
@@ -39,8 +39,7 @@
 			<input type="hidden" name="_method" value="delete">
 			<input type="submit" value="Delete">
 		</form></td>
-		<td><form action="/rating/<%=rate.id%>/edit" method="get">
-			
+		<td><form class="Button" id=edit-table-form action="/rating/<%=rate.id%>/edit">
 			<input type="submit" value="Edit">
 		</form></td>
 
@@ -53,6 +52,10 @@
 <a id="rating-form" href="/rating/new"> Create a new rating </a></p> 
 
 <div id="rating-form-append-area">
+
+</div>
+
+<div id="edit-form-append-area">
 
 </div>
 </center>

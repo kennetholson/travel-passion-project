@@ -9,8 +9,10 @@ end
 
 get '/place/:country/:city' do
 	@country = params[:country]
+	@country.gsub!(/ /, '-')
 	@city = params[:city]
-	@place = Place.find_by(city: params[:city])
+	@city.gsub!(/ /, '-')
+	@place = Place.find_by(country: @country, city: @city)
 	if @place != nil
 		@array = @place.ratings
 	else 
@@ -24,8 +26,8 @@ end
 
 post '/place' do
 	@country = params[:country]
-	@city = params[:city]
-	@place = Place.find_by(city: params[:city])
+	@city = params[:city]	
+	@place = Place.find_by(country: @country, city: @city)
 	if @place != nil
 		@array = @place.ratings
 	else 
