@@ -23,11 +23,11 @@
 		<th>  </th>
 
 	</tr>
-	<%@user.places.each do |something|%>
-	<% something.ratings.each do |rate| %>	
+	<%@user.ratings.each do |rate|%>
+	
 	<tr>
-		<td><%= something.city %></td>
-		<td><%= something.country %></td>
+		<td><%= rate.place.city %></td>
+		<td><%= rate.place.country %></td>
 		<td><center><%= rate.food %></center></td>
 		<td><center><%= rate.family_friendly %></center></td>		
 		<td><center><%= rate.history %></center></td>		
@@ -44,7 +44,7 @@
 		</form></td>
 
 	</tr>
-	<%end%>
+	
 	<%end%>
 	</table>
 	
