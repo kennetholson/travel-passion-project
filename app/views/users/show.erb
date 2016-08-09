@@ -6,11 +6,38 @@
 <h2> You have not rated any locations yet</h2>
 <% else %>
 <h2>Cities you have rated</h2>
-<ul>
-	<% @user.places.each do |place| %>
-	<li> <%= place.city %>, <%= place.country %></li>
-	<% end %>
-</ul>
+
+
+	<table>
+	<tr>
+		<th>City</th>
+		<th>Country</th>
+		<th> Food </th>
+		<th> Family Friendly </th>
+		<th> History </th>
+		<th> Sites </th>
+		<th> Cost </th>
+		<th> Hospitality </th>
+		<th> Modernism </th>
+
+	</tr>
+	<%@user.places.each do |something|%>
+	<% something.ratings.each do |rate| %>	
+	<tr>
+		<td><%= something.city %></td>
+		<td><%= something.country %></td>
+		<td><center><%= rate.food %></center></td>
+		<td><center><%= rate.family_friendly %></center></td>		
+		<td><center><%= rate.history %></center></td>		
+		<td><center><%= rate.sites %></center></td>		
+		<td><center><%= rate.cost %></center></td>		
+		<td><center><%= rate.hospitality %></center></td>		
+		<td><center><%= rate.modernism %></center></td>		
+	</tr>
+	<%end%>
+	<%end%>
+	</table>
+	
 <% end %>
 <a id="rating-form" href="/rating/new"> Create a new rating </a></p> 
 
