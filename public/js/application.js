@@ -18,7 +18,6 @@ function getRatings(){
 
   })
    .done(function(serverData){
-    console.log(serverData);
     $('#append-area').append(serverData);
   })
    .fail(function(serverData){
@@ -30,7 +29,6 @@ function getRatings(){
 function getRatingForm(){
   $('#rating-form').on('click', function(event){
     event.preventDefault();
-    console.log('nothing broke yet');
 
     $.ajax({
       url: '/rating/new',

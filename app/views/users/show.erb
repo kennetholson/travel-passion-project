@@ -7,6 +7,16 @@
 <% else %>
 <h2>Cities you have rated</h2>
 
+<!--<img width="600" src="http://maps.googleapis.com/maps/api/staticmap?center=london,+england&zoom=1&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&
+
+markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C,+&
+
+markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7Csan-francisco,+california" alt="Google Map of london, england">-->
+<img width="700" src="http://maps.googleapis.com/maps/api/staticmap?center=london,+england&zoom=1&scale=false&size=700x350&maptype=roadmap&key=<%=ENV['GOOGLE_KEY']%>&format=png&visual_refresh=true&
+<%@user.places.each do |place|%>
+markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C<%=place.city%>,+<%=place.country%>&
+<%end%>
+markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7Csan-francisco,+california" alt="Google Map of london, england">
 
 	<table id="users-ratings-table">
 	<tr>
