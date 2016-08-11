@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	getRatings();
-  getRatingForm(); 
+  getRatingForm();
+  postNewRating(); 
   getLoginForm();
   getRegisterForm();
   getEditRatingForm();	
@@ -38,6 +39,24 @@ function getRatingForm(){
       $("#rating-form").hide();
       $('#rating-form-append-area').append(serverData);
     }); 
+  });
+}
+
+function postNewRating(){
+  $('#rating-form-append-area').on('submit', 'form', function(event){
+    event.preventDefault();
+    var data = $(this).serialize();
+    var url = $(this).attr('action');
+
+    $.ajax({
+      url: url,
+      method: 'POST',
+      data: data  
+    })
+    .done(function(serverData){
+      $("#users-ratings-table").append(serverData);
+      $('#rating-form-append-area').empty();      
+    });  
   });
 }
 
@@ -81,7 +100,7 @@ function getEditRatingForm(){
   $(".Button").on('click', function(event){
     event.preventDefault();
     var url = $(this).attr('action');
-        
+
     $.ajax({
      url: url,
      method: 'get'     
@@ -92,3 +111,4 @@ function getEditRatingForm(){
    });  
   });
 }
+

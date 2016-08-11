@@ -8,12 +8,19 @@ end
 
 post '/rating/new' do
 	@user = current_user.id
+	@full_user = current_user
 	@place = Place.find_by(country: params[:country], city: params[:city])
 	if @place == nil
 		@place = Place.create(country: params[:country], city: params[:city])
 	end
 	@rating = Rating.create(food: params[:food], family_friendly: params[:family_friendly], history: params[:history], sites: params[:sites],cost: params[:cost], hospitality: params[:hospitality], modernism: params[:modernism], user_id: @user, place_id: @place.id)
-	redirect "/users/#{@user}"	
+
+	if request.xhr?
+		erb :'users/_show', layout: false, locals: {rating: @rating}
+	else	
+		redirect "/users/#{@user}"
+	end	
+
 end	
 
 delete '/rating/:id' do
@@ -26,7 +33,7 @@ end
 get '/rating/:id/edit' do
 	@rating = Rating.find(params[:id])
 	p @rating
-	if request.xhr?
+	if request.xhr?		
 		erb :'ratings/edit', layout: false
 	else
 		erb :'ratings/edit'

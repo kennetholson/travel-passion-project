@@ -1,5 +1,6 @@
 <p><a href="/logout"> Log Out </a> / 
 <a href="/"> Home </a></p> 
+
 <center>
 <h1>Welcome <%= @user.name %></h1>
 <% if @user.places.length == 0 %>
@@ -7,16 +8,15 @@
 <% else %>
 <h2>Cities you have rated</h2>
 
-<!--<img width="600" src="http://maps.googleapis.com/maps/api/staticmap?center=london,+england&zoom=1&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&
-
-markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C,+&
-
-markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7Csan-francisco,+california" alt="Google Map of london, england">-->
-<img width="700" src="http://maps.googleapis.com/maps/api/staticmap?center=london,+england&zoom=1&scale=false&size=700x350&maptype=roadmap&key=<%=ENV['GOOGLE_KEY']%>&format=png&visual_refresh=true&
+<img width="75%" src="http://maps.googleapis.com/maps/api/staticmap?autoscale=false&size=600x300&maptype=roadmap&key=<%=ENV['GOOGLE_KEY']%>&format=png&visual_refresh=true&
 <%@user.places.each do |place|%>
 markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C<%=place.city%>,+<%=place.country%>&
 <%end%>
 markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7Csan-francisco,+california" alt="Google Map of london, england">
+
+
+
+
 
 	<table id="users-ratings-table">
 	<tr>
@@ -31,25 +31,23 @@ markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7Csan-francisco,+california" alt="Go
 		<th> Modernism </th>
 		<th>  </th>
 		<th>  </th>
-
 	</tr>
-	<%@user.ratings.each do |rate|%>
-	
+	<%@user.ratings.each do |rating|%>	
 	<tr>
-		<td><%= rate.place.city %></td>
-		<td><%= rate.place.country %></td>
-		<td><center><%= rate.food %></center></td>
-		<td><center><%= rate.family_friendly %></center></td>		
-		<td><center><%= rate.history %></center></td>		
-		<td><center><%= rate.sites %></center></td>		
-		<td><center><%= rate.cost %></center></td>		
-		<td><center><%= rate.hospitality %></center></td>		
-		<td><center><%= rate.modernism %></center></td>	
-		<td><form action="/rating/<%=rate.id%>" method="post">
+		<td><%= rating.place.city %></td>
+		<td><%= rating.place.country %></td>
+		<td><center><%= rating.food %></center></td>
+		<td><center><%= rating.family_friendly %></center></td>		
+		<td><center><%= rating.history %></center></td>		
+		<td><center><%= rating.sites %></center></td>		
+		<td><center><%= rating.cost %></center></td>		
+		<td><center><%= rating.hospitality %></center></td>		
+		<td><center><%= rating.modernism %></center></td>	
+		<td><form action="/rating/<%=rating.id%>" method="post">
 			<input type="hidden" name="_method" value="delete">
 			<input type="submit" value="Delete">
 		</form></td>
-		<td><form class="Button" id=edit-table-form action="/rating/<%=rate.id%>/edit">
+		<td><form class="Button" id=edit-table-form action="/rating/<%=rating.id%>/edit">
 			<input type="submit" value="Edit">
 		</form></td>
 
@@ -69,3 +67,4 @@ markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7Csan-francisco,+california" alt="Go
 
 </div>
 </center>
+

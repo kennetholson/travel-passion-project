@@ -1,0 +1,19 @@
+<tr>
+		<td><%= rating.place.city %></td>
+		<td><%= rating.place.country %></td>
+		<td><center><%= rating.food %></center></td>
+		<td><center><%= rating.family_friendly %></center></td>		
+		<td><center><%= rating.history %></center></td>		
+		<td><center><%= rating.sites %></center></td>		
+		<td><center><%= rating.cost %></center></td>		
+		<td><center><%= rating.hospitality %></center></td>		
+		<td><center><%= rating.modernism %></center></td>	
+		<td><form action="/rating/<%=rating.id%>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Delete">
+		</form></td>
+		<td><form class="Button" id=edit-table-form action="/rating/<%=rating.id%>/edit">
+			<input type="submit" value="Edit">
+		</form></td>
+
+	</tr>
