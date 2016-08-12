@@ -101,14 +101,11 @@ function getEditRatingForm(){
     event.preventDefault();
     var url = $(this).attr('action');
 
-    $.ajax({
-     url: url,
-     method: 'get'     
+    $.get(url);     
    })
     .done(function(serverData){
      $('#edit-form-append-area').empty();      
      $('#edit-form-append-area').append(serverData);
    });  
-  });
 }
 

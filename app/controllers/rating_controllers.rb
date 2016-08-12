@@ -9,10 +9,7 @@ end
 post '/rating/new' do
 	@user = current_user.id
 	@full_user = current_user
-	@place = Place.find_by(country: params[:country], city: params[:city])
-	if @place == nil
-		@place = Place.create(country: params[:country], city: params[:city])
-	end
+	@place = Place.find_or_create_by(country: params[:country], city: params[:city])
 	@rating = Rating.create(food: params[:food], family_friendly: params[:family_friendly], history: params[:history], sites: params[:sites],cost: params[:cost], hospitality: params[:hospitality], modernism: params[:modernism], user_id: @user, place_id: @place.id)
 
 	if request.xhr?
