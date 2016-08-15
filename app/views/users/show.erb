@@ -1,3 +1,4 @@
+<% if session[:id] != nil%>
 <p><a href="/logout"> Log Out </a> / 
 <a href="/"> Home </a></p> 
 
@@ -67,4 +68,6 @@ markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7Csan-francisco,+california" alt="Go
 
 </div>
 </center>
-
+<% else%>
+<p>please log in</p>
+<%end%>

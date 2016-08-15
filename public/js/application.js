@@ -1,10 +1,11 @@
 $(document).ready(function() {
 	getRatings();
   getRatingForm();
-  postNewRating(); 
+  //postNewRating(); 
   getLoginForm();
   getRegisterForm();
-  getEditRatingForm();	
+  getEditRatingForm();
+  postEditRating();	
 });
 
 function getRatings(){
@@ -19,6 +20,7 @@ function getRatings(){
 
   })
    .done(function(serverData){
+
     $('#append-area').append(serverData);
   })
    .fail(function(serverData){
@@ -42,24 +44,24 @@ function getRatingForm(){
   });
 }
 
-function postNewRating(){
-  $('#rating-form-append-area').on('submit', 'form', function(event){
-    event.preventDefault();
-    var data = $(this).serialize();
-    var url = $(this).attr('action');
-
-    $.ajax({
-      url: url,
-      method: 'POST',
-      data: data  
-    })
-    .done(function(serverData){
-      $("#users-ratings-table").append(serverData);
-      $('#rating-form-append-area').empty();
-      $("#rating-form").show();      
-    });  
-  });
-}
+//function postNewRating(){
+//  $('#rating-form-append-area').on('submit', 'form', function(event){
+//    event.preventDefault();
+//    var data = $(this).serialize();
+//    var url = $(this).attr('action');
+//
+//    $.ajax({
+//      url: url,
+//      method: 'POST',
+//      data: data  
+//    })
+//    .done(function(serverData){
+//      $("#users-ratings-table").append(serverData);
+//      $('#rating-form-append-area').empty();
+//      $("#rating-form").show();      
+//    });  
+//  });
+//}
 
 function getLoginForm(){
   $('#login-button').on('click', function(event){
@@ -109,3 +111,4 @@ function getEditRatingForm(){
    });   
   });
 }
+

@@ -1,5 +1,4 @@
 helpers do
-# finds user if logged in
 	def login(user)
 		session[:id] = user.id
 	end	
