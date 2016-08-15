@@ -55,7 +55,8 @@ function postNewRating(){
     })
     .done(function(serverData){
       $("#users-ratings-table").append(serverData);
-      $('#rating-form-append-area').empty();      
+      $('#rating-form-append-area').empty();
+      $("#rating-form").show();      
     });  
   });
 }
