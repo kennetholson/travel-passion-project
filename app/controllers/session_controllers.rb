@@ -21,6 +21,5 @@ end
 
 get '/logout' do
   logout
-  p "You are logged out #{session.id}"
   redirect '/'
 end

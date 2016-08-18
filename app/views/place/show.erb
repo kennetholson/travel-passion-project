@@ -1,11 +1,11 @@
 
 <div id="country-rating">
-<h1><%= @city %>, <%= @country %>   </h1>
-<h2> Ratings </h2>
-<% if @array.length == 0 %>
-<p>Nobody has rated this place yet</p>
-<% else %>
-<h3> Based off of <%= @array.length %> ratings</h3>
+	<h1> <%= @city %>, <%= @country %> </h1>
+	<h2> Ratings </h2>
+		<% if @array.length == 0 %>
+			<p>Nobody has rated this place yet</p>
+		<% else %>
+	<h3> Based off of <%= @array.length %> ratings</h3>
 
 <h4><table width= "375" height="300" background="http://www.morrisplainsschooldistrict.org/cms/lib01/NJ01001854/Centricity/Domain/4/spinningGlobe.gif">
 	<tr>

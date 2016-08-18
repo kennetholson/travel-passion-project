@@ -18,22 +18,22 @@ get '/place/:country/:city' do
 	else 
 		@array = []
 	end 
-
 	erb :'/place/show'
-
 end	
 
 
 post '/place' do
 	@country = params[:country]
-	@city = params[:city]	
+	@country.gsub!(/ /, '-')
+	@city = params[:city]
+	@city.gsub!(/ /, '-')	
 	@place = Place.find_by(country: @country, city: @city)
 	if @place != nil
 		@array = @place.ratings
 	else 
 		@array = []
 	end 
-
+	
 	if request.xhr?		
 		return erb :'/place/show', layout: false, locals: {country: @counrty, city: @city}			
 	else

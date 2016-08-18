@@ -7,8 +7,13 @@ get '/users/new' do
 end
 
 post '/users/new' do
-	@user = User.create(params[:user])
-	redirect "/sessions/new"
+	@user = User.new(params[:user])
+	if @user.save
+    login(@user)		
+	redirect "/users/#{@user.id}"
+	else	 
+	redirect "/users/new"
+	end
 end
 
 

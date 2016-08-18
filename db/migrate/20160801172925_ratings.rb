@@ -1,4 +1,4 @@
-class Ratings < ActiveRecord::Migration
+ class Ratings < ActiveRecord::Migration
 	
 
   def change
@@ -11,7 +11,7 @@ class Ratings < ActiveRecord::Migration
       t.integer :hospitality, null: false
       t.integer :modernism, null: false
       t.integer :user_id, null: false
-      t.integer :place_id, null: false 
+      t.integer :place_id, null: false
 
     end  
   end

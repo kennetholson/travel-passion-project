@@ -5,33 +5,28 @@
     </div>
     <ul class="nav navbar-nav">
     	<% if session[:id] == nil%>
-		<%= session[:id]%>
-      <li><a id="register-button" href="users/new"> Register </a></li>
-      <li><a id="login-button" href="sessions/new">Login</a></li>
+        <li><a id="register-button" href="users/new"> Register </a></li>
+        <li><a id="login-button" href="sessions/new">Login</a></li>
       <% else %>
-      <li><a href="/logout"> Log Out </a></li>
-      <li><a href="/users/<%=@user.id%>"> My Page </a></li>
+       <li><a href="/logout"> Log Out </a></li>
+       <li><a href="/users/<%=@user.id%>"> My Page </a></li>
       <% end %>
     </ul>
   </div>
 </nav>
 
 
-
 <center>
-<h2>Find Ratings of Place</h2>
-<form id="find-country-form" action='/place' method='post'>
-Country <input id="country-name" type='text' name='country'><br><br>
-City <input id="city-name" type='text' name='city'><br><br>
-<input type="submit" value="SUBMIT">
-</form>
+  <h2>Find Ratings of Place</h2>
+    <form id="find-country-form" action='/place' method='post'>
+      Country <input id="country-name" type='text' name='country'><br><br>
+      City <input id="city-name" type='text' name='city'><br><br>
+      <input type="submit" value="SUBMIT">
+    </form>
 
+  <div align="center" id="append-area">
 
-
-
-<div id="append-area">
-
-</div>
+  </div>
 </center>
 
 
