@@ -5,7 +5,7 @@ $(document).ready(function() {
   getLoginForm();
   getRegisterForm();
   getEditRatingForm();
-  postEditRating();	
+  //postEditRating();	
 });
 
 function getRatings(){
